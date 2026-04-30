@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -25,5 +26,9 @@ const corsOptions = {
 // 2. Apply Middleware
 app.use(cors(corsOptions));
 app.use(express.json());
+
+app.get('/api', (req, res) => {
+  res.json({ message: "Backend API is alive and kicking! 🚀" });
+});
 
 module.exports = app;
